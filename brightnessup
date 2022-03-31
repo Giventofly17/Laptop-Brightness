@@ -1,0 +1,11 @@
+#! /bin/bash
+
+bl=$( cat /sys/class/backlight/intel_backlight/brightness)
+
+if [ $bl -lt 150 ]
+then
+	nbl=$((bl + 10))
+	#echo $nbl
+	echo "$nbl" > /sys/class/backlight/intel_backlight/brightness
+	#echo  "$nbl" | tee /home/james/.Scripts/test
+fi

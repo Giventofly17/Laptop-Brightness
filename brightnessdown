@@ -1,0 +1,9 @@
+#! /bin/bash
+
+bl=$( cat /sys/class/backlight/intel_backlight/brightness)
+
+if [ $bl -gt 10 ]
+then
+	nbl=$((bl - 10))
+	echo "$nbl" > /sys/class/backlight/intel_backlight/brightness
+fi
